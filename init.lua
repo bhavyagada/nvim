@@ -120,8 +120,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
-		{ import = "plugins" },
 		"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 		"windwp/nvim-autopairs", -- autopairs brackets
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
