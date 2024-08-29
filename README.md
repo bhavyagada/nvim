@@ -18,3 +18,4 @@ Plugins used:
 - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [mini.nvim](https://github.com/echasnovski/mini.nvim)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [undotree](https://github.com/mbbill/undotree)
