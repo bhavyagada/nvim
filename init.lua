@@ -60,6 +60,11 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set the tab width
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -120,6 +125,15 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
+		{
+			"boganworld/crackboard.nvim",
+			dependencies = { "nvim-lua/plenary.nvim" },
+			config = function()
+				require("crackboard").setup({
+					session_key = "1b7f38332b889af62166fb8479cbda82bc91849d3c7d3d3b0c5fc46222b220c1",
+				})
+			end,
+		},
 		"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 		"windwp/nvim-autopairs", -- autopairs brackets
 		{ -- Adds git related signs to the gutter, as well as utilities for managing changes
