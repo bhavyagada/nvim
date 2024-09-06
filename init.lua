@@ -65,6 +65,9 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+-- Set linebreak (break at words instead of characters)
+vim.opt.linebreak = true
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -543,7 +546,6 @@ require("lazy").setup({
 				--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 				local servers = {
 					pyright = {},
-					tsserver = {},
 					-- clangd = {},
 					-- gopls = {},
 					-- rust_analyzer = {},
@@ -590,6 +592,9 @@ require("lazy").setup({
 				require("mason-lspconfig").setup({
 					handlers = {
 						function(server_name)
+							if server_name == "tsserver" then
+								server_name = "ts_ls"
+							end
 							local server = servers[server_name] or {}
 							-- This handles overriding only values explicitly passed
 							-- by the server configuration above. Useful when disabling
